@@ -3,13 +3,16 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 
-	"main/models" // new
+	"main/controllers" // new
+	"main/models"
 )
 
 func main() {
 	r := gin.Default()
 
-	models.ConnectDatabase() // new
+	models.ConnectDatabase()
+
+	r.GET("/books", controllers.FindBooks) // new
 
 	r.Run()
 }
